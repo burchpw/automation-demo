@@ -14,15 +14,21 @@ RSpec.configure do |config|
   config.include Capybara::DSL
 
   config.before(:example, type: :feature) do
-    Capybara.register_driver :remote_docker do |app|
-      caps = Selenium::WebDriver::Remote::Capabilities.send(ENV["BROWSER"].to_sym)
-      Capybara::Selenium::Driver.new(app,
-                                     :browser => :remote,
-                                     :desired_capabilities => caps,
-                                     :url => "http://0.0.0.0:4445/wd/hub"
-      )
-
+    if ENV["DOCKER_COMPOSE"]
+      url = "http://automation-demo_#{ENV["BROWSER"]}_1:4444/wd/hub"
+    else
+      url = 'http://0.0.0.0:4445/wd/hub'
     end
+      Capybara.register_driver :remote_docker do |app|
+        caps = Selenium::WebDriver::Remote::Capabilities.send(ENV["BROWSER"].to_sym)
+        Capybara::Selenium::Driver.new(app,
+                                       :browser => :remote,
+                                       :desired_capabilities => caps,
+                                       :url => url
+        )
+      end
+
+
 
     Capybara::Screenshot.register_driver(:remote_docker) do |driver,path|
       driver.browser.save_screenshot(path)

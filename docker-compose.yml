@@ -1,0 +1,17 @@
+version: '3.9'
+services:
+  test_worker:
+    build: .
+    image: 'test_worker:latest'
+    environment:
+      BROWSER: 'firefox'
+      DOCKER_COMPOSE: 'true'
+    #entrypoint:
+    volumes:
+     - './docker_test_results:/test_results'
+    depends_on:
+      - firefox
+
+  firefox:
+    image: selenium/standalone-firefox
+    shm_size: '2gb'

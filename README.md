@@ -43,4 +43,12 @@ Run the following command: `docker build -t automation-demo .`
 Run the following command: `docker run -it automation-demo /bin/bash`
 
 ### Prune Docker
-Run the follwoing command: `docker system prune --all`
+Run the following command: `docker system prune --all`
+
+# Docker Compose
+
+## Build
+Run the following command: `docker-compose build`
+
+## Run
+Run the following command to do an interactive docker compose session: ```docker-compose run --rm -v `pwd`/docker_test_results:/automation-demo/test_results test_worker bash```
