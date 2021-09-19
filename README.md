@@ -4,12 +4,12 @@
 1. Install [Homebrew](https://brew.sh/) for package management
 2. Use Homebrew to install [asdf](https://asdf-vm.com/guide/getting-started.html#_1-install-dependencies) for dependency management
 3. Use asdf to install [ruby plugin](https://github.com/asdf-vm/asdf-ruby)
-4. Use asdf ruby plugin to install Ruby 3.0: `asdf install ruby 2.7.4`
+4. Use asdf ruby plugin to install Ruby 2.7.4: `asdf install ruby 2.7.4`
 5. Clone the Github repository locally: `git clone #{git repo address}`
 6. Change working directory to `automation-demo`
 7. Set the local asdf ruby version: `asdf local ruby 2.7.4`
 8. Install [bundler](https://bundler.io/): `gem install bundler -v 2.2.27`
-9. 
+9. Use Bundler to install Ruby Gems: `bundle install`
 
 ## Frame Works Used
 1. [Rspec](https://rspec.info/documentation/)
