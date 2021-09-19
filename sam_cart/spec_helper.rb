@@ -15,7 +15,7 @@ RSpec.configure do |config|
 
   config.before(:example, type: :feature) do
     Capybara.register_driver :remote_docker do |app|
-      caps = Selenium::WebDriver::Remote::Capabilities.send(:firefox)
+      caps = Selenium::WebDriver::Remote::Capabilities.send(ENV["BROWSER"].to_sym)
       Capybara::Selenium::Driver.new(app,
                                      :browser => :remote,
                                      :desired_capabilities => caps,
