@@ -4,7 +4,7 @@ class LoginPage < SitePrism::Page
   element :email, 'input[name="email"]'
   element :password, 'input[name="password"]'
 
-  def click_login_button
-    Capybara.find_button('Log in').click
+  def login_button
+    Capybara.find_button('Log in')
   end
 end

@@ -6,7 +6,7 @@ require 'selenium-webdriver'
 require 'site_prism'
 require 'site_prism/all_there'
 require 'yaml'
-require_relative 'page_objects/app'
+require_relative 'page_objects/pages'
 
 
 RSpec.configure do |config|

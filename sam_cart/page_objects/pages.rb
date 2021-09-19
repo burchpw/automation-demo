@@ -6,4 +6,7 @@ class Pages
     LoginPage.new
   end
 
+  def dashboard_page
+    DashboardPage.new
+  end
 end
