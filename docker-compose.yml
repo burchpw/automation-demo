@@ -6,7 +6,8 @@ services:
     environment:
       BROWSER: 'firefox'
       DOCKER_COMPOSE: 'true'
-    #entrypoint:
+      PRIVATE_KEY:
+    entrypoint: bash setup.sh
     volumes:
      - './docker_test_results:/test_results'
     depends_on:

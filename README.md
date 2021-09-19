@@ -16,7 +16,9 @@
 7. Set the local asdf ruby version: `asdf local ruby 2.7.4`
 8. Install [bundler](https://bundler.io/): `gem install bundler -v 2.2.27`
 9. Use Bundler to install Ruby Gems: `bundle install`
-10. Use Homebrew to install 
+10. Use Homebrew to install gpg version 2.2.37: `brew install gpg@2.2`
+11. Use Homebrew to install sops version 3.7.1: `brew install sops`
+12. Update console ENV to prevent [failed to get data key error](https://jhooq.com/failed-to-get-the-data-key/)
 
 # Frame Works Used
 1. [Rspec](https://rspec.info/documentation/)
@@ -52,3 +54,35 @@ Run the following command: `docker-compose build`
 
 ## Run
 Run the following command to do an interactive docker compose session: ```docker-compose run --rm -v `pwd`/docker_test_results:/automation-demo/test_results test_worker bash```
+
+# Encyrption Setup
+PGP Version 2.2.31
+SOPS Version 3.7.1
+
+## Generating PGP key with no passphrase
+```
+gpg --batch --gen-key <<EOF
+%no-protection
+Key-Type:1
+Key-Length:2048
+Subkey-Type:1
+Subkey-Length:2048
+Name-Real: username
+Name-Email: email@email.com
+Expire-Date:0
+EOF
+```
+## Encrypt File
+`sops -p #{public key} -e credentials.yml > encpyted_credentials.yml`
+
+## Decrypt File
+`sops -d encpyted_credentials.yml > credentials.yml`
+
+## Export Secret Key
+`gpg --export-secret-key -a YOUR_ID_HERE > private.key`
+
+## Convert Private Key To Base64
+`cat private.key | base64`
+
+## Import Secret Key
+`gpg --batch --import private.key`
