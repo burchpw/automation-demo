@@ -57,3 +57,6 @@ build-iPhoneSimulator/
 
 #ignore Rubymine config files
 .idea
+
+#ignore unecrypted credentials
+credentials/credentials.yml
