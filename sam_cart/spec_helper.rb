@@ -8,6 +8,7 @@ require 'site_prism/all_there'
 require 'yaml'
 require_relative 'page_objects/pages'
 
+Dir[File.dirname(__FILE__) + '/helpers/*.rb'].each {|file| require file }
 
 RSpec.configure do |config|
 
@@ -47,7 +48,3 @@ RSpec.configure do |config|
   end
 
 end
-
-credentials = YAML::load_file(File.join(__dir__, 'credentials/credentials.yml'))
-$email = credentials['email']
-$password = credentials['password']

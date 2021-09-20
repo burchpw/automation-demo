@@ -6,7 +6,19 @@ class Pages
     LoginPage.new
   end
 
+  def navbar
+    Navbar.new
+  end
+
   def dashboard_page
     DashboardPage.new
+  end
+
+  def products_page
+    ProductsPage.new
+  end
+
+  def edit_product_page
+    EditProductPage.new
   end
 end

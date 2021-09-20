@@ -13,6 +13,7 @@ RUN bundle install
 #Copy Setup File and Test Files
 COPY setup.sh setup.sh
 COPY ./sam_cart/credentials/encpyted_credentials.yml ./sam_cart/credentials/encpyted_credentials.yml
+COPY ./sam_cart/helpers ./sam_cart/helpers
 COPY ./sam_cart/page_objects ./sam_cart/page_objects
 COPY ./sam_cart/specs ./sam_cart/specs
 COPY ./sam_cart/spec_helper.rb ./sam_cart/spec_helper.rb
