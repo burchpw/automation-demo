@@ -44,7 +44,7 @@ Table of contents
 # Running Tests
 ## Local Firefox Run 
 1. Start Firefox selenium docker container: `docker run -d -p 4445:4444 -p 5900:5900 --shm-size="2g" selenium/standalone-firefox:4.0.0-rc-2-prerelease-20210916`
-2. From the project root run the following command: `BROWSER=firefox rspec sam_cart/specs/**/*_spec.rb`
+2. From the project root run the following command: `BROWSER=firefox rspec ruby_code/specs/**/*_spec.rb`
 
 ## Debugging Local Test
 Follow information [here](https://github.com/SeleniumHQ/docker-selenium#debugging)
@@ -88,7 +88,7 @@ Run the following command: `docker-compose build`
 Run the following command to start a interactive docker compose session: ```docker-compose run --rm -v `pwd`/docker_test_results:/automation-demo/test_results test_worker bash```
 
 ## Docker Compose Run Tests
-Run the following command to run all tests in docker compose: ``` docker-compose run --rm -v `pwd`/docker_test_results:/automation-demo/test_results test_worker bash -c  'bundle exec rspec sam_cart/specs/**/*_spec.rb'```
+Run the following command to run all tests in docker compose: ``` docker-compose run --rm -v `pwd`/docker_test_results:/automation-demo/test_results test_worker bash -c  'bundle exec rspec ruby_code/specs/**/*_spec.rb'```
 
 # Encryption Setup
 PGP Version 2.2.31
